@@ -9,11 +9,9 @@
 ## External Dependencies
 - **Web Scraping**: BeautifulSoup/Selenium for AutoTrader
 - **APIs**: Various car data APIs (selection in progress)
-- **LLM Integration**: Google Gemini API (primary), with optional support for OpenAI and Anthropic
-- **Terminal UI**: Framework TBD (possibly textual, urwid, or rich)
+- **LLM Integration**: Google Gemini API (primary), with optional support for OpenAI, Local Ollama and Anthropic
 
 ## Architecture
-- Terminal-based application using a TUI
 - Modular design with separation of concerns:
   - Search parameter management
   - Data collection (web scraping + API calls)
@@ -39,4 +37,4 @@
 - Web scraping reliability
 - API rate limits
 - Data consistency across different sources
-- Effective prompt engineering for LLM 
+- Effective prompt engineering for LLM

@@ -42,7 +42,7 @@ Functionality should include being able to use OpenAI and Anthropic, if easily d
 
 ## Interface
 
-Intended as a terminal application using a terminal GUI, or TUI.
+Intended standalone application built using Qt6
 
 Should allow for selection and configuration of a LLM, and configuration of vehicle search paramters.
 
@@ -50,7 +50,7 @@ Should allow for selection and configuration of a LLM, and configuration of vehi
 
 Make sure and setup the development environment
 
-- Use Poetry to install dependencies and manage the virtual environment.
+- Use UV to install dependencies and manage the virtual environment.
 
 ## Conclusion
 

@@ -40,18 +40,32 @@ def ensure_playwright_installed() -> bool:
 
         # Check if browsers are installed
         try:
-            # Try importing a browser-specific module to see if browsers are installed
-            from playwright.sync_api import sync_playwright
-
-            with sync_playwright() as p:
-                # Just check if we can access chromium
-                _ = p.chromium
-            logger.info("Playwright browsers already installed")
-            return True
-        except Exception as e:
-            if "Executable doesn't exist" in str(e):
-                logger.warning("Playwright browsers not installed, installing now...")
-
+            # Try more reliable browser check using subprocess
+            try:
+                result = subprocess.run(
+                    [sys.executable, "-m", "playwright", "install", "--help"],
+                    check=True, 
+                    capture_output=True,
+                    text=True,
+                )
+                if "chromium" in result.stdout:
+                    logger.info("Playwright browsers appear to be installed")
+                    return True
+            except Exception as e:
+                logger.warning(f"Could not check Playwright installation via CLI: {e}")
+            
+            # If CLI check failed, try a more direct approach
+            # Use path checks instead of trying to launch browser
+            import os
+            from playwright._impl import _driver
+            
+            executable_path = _driver.compute_driver_executable()
+            if os.path.exists(executable_path):
+                logger.info(f"Playwright driver found at {executable_path}")
+                return True
+            else:
+                logger.warning(f"Playwright driver not found at {executable_path}")
+                
                 # Install browsers
                 try:
                     result = subprocess.run(
@@ -65,9 +79,10 @@ def ensure_playwright_installed() -> bool:
                 except subprocess.CalledProcessError as install_error:
                     logger.error(f"Failed to install Playwright browsers: {install_error.stderr}")
                     return False
-            else:
-                logger.error(f"Unexpected error when checking Playwright browsers: {e}")
-                return False
+                
+        except Exception as e:
+            logger.error(f"Unexpected error when checking Playwright browsers: {e}")
+            return False
 
     except ImportError:
         logger.error("Playwright not installed in Python environment")

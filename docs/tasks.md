@@ -33,12 +33,14 @@
 - [x] Implement caching mechanism to reduce repeated requests
 - [x] Add error handling and retry logic
 - [ ] Migrate to Playwright for browser automation (High Priority)
-  - [ ] Install Playwright and browser dependencies
-  - [ ] Update AutoTraderProvider to use Playwright
-  - [ ] Add screenshot capture for debugging
-  - [ ] Implement handling for interactive elements (accept cookies, load more)
-  - [ ] Add timeout and retry mechanisms specific to browser automation
-  - [ ] Update tests to work with Playwright
+  - [x] Install Playwright and browser dependencies
+  - [x] Update AutoTraderProvider to use Playwright
+  - [x] Add screenshot capture for debugging
+  - [x] Implement handling for interactive elements (accept cookies, load more)
+  - [x] Add timeout and retry mechanisms specific to browser automation
+  - [x] Update tests to work with Playwright
+  - [x] Create Playwright debugging tool for iterative selector testing (2023-08-15)
+  - [ ] Refine selectors based on debugging results
 
 ### Phase 4: Car Data Integration (Medium Priority)
 
@@ -112,6 +114,7 @@
 - [x] Add additional reliability data sources/APIs with JD Power integration (2023-08-01)
 - [x] Improve error handling for API clients with retry logic and detailed logging (2023-08-01)
 - [x] Create Playwright-based test script for car scraping validation
+- [x] Create Playwright debugging tool for iterative selector testing (2023-08-15)
 
 ### Planning & Architecture
 
@@ -129,6 +132,9 @@
 4. ~~Add setting to control test data behavior~~ (Completed 2023-08-02)
 5. Create matching logic to connect search results with reliability data
 6. Migrate web scraping to Playwright for browser automation
+   - ~~Create debug tools for selector testing~~ (Completed 2023-08-15)
+   - Refine and test selectors for different website layouts
+   - Update main provider implementation with improved selectors
 
 ## Future Enhancements
 

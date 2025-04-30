@@ -66,7 +66,67 @@ class SearchOptionsPanel(QWidget):
         )
         behavior_layout.addWidget(self.use_test_data_checkbox)
 
+        # Playwright option
+        self.use_playwright_checkbox = QCheckBox("Use Playwright for browser automation (experimental)")
+        self.use_playwright_checkbox.setToolTip(
+            "When enabled, the application will use Playwright for browser automation instead of "
+            "HTTP requests. This can help navigate JavaScript-heavy websites but requires more resources."
+        )
+        self.use_playwright_checkbox.stateChanged.connect(self._on_use_playwright_changed)
+        behavior_layout.addWidget(self.use_playwright_checkbox)
+
         layout.addWidget(behavior_group)
+
+        # Playwright configuration group
+        self.playwright_group = QGroupBox("Playwright Configuration")
+        playwright_layout = QFormLayout(self.playwright_group)
+
+        # Headless mode
+        self.headless_checkbox = QCheckBox()
+        self.headless_checkbox.setToolTip(
+            "When enabled, the browser will run in headless mode (no visible UI). "
+            "This is more efficient but may not work with some websites."
+        )
+        playwright_layout.addRow("Headless Mode:", self.headless_checkbox)
+
+        # Screenshot enabled
+        self.screenshot_checkbox = QCheckBox()
+        self.screenshot_checkbox.setToolTip(
+            "When enabled, the application will take screenshots during the automation process. "
+            "This is useful for debugging but will consume more disk space."
+        )
+        playwright_layout.addRow("Enable Screenshots:", self.screenshot_checkbox)
+
+        # Debug mode
+        self.debug_checkbox = QCheckBox()
+        self.debug_checkbox.setToolTip(
+            "When enabled, the application will log additional debug information during the automation process."
+        )
+        playwright_layout.addRow("Debug Mode:", self.debug_checkbox)
+
+        # Timeout
+        self.timeout_input = QSpinBox()
+        self.timeout_input.setRange(10, 120)
+        self.timeout_input.setSingleStep(5)
+        self.timeout_input.setValue(30)
+        self.timeout_input.setToolTip(
+            "Timeout for Playwright operations in seconds. Increase this value if you're experiencing timeouts."
+        )
+        playwright_layout.addRow("Timeout (seconds):", self.timeout_input)
+
+        # Slow motion delay
+        self.slow_mo_input = QSpinBox()
+        self.slow_mo_input.setRange(0, 1000)
+        self.slow_mo_input.setSingleStep(50)
+        self.slow_mo_input.setValue(0)
+        self.slow_mo_input.setSpecialValueText("Disabled")
+        self.slow_mo_input.setToolTip(
+            "Slow down Playwright operations by the specified amount (in milliseconds). "
+            "This is useful for debugging or watching the automation process."
+        )
+        playwright_layout.addRow("Slow Motion Delay (ms):", self.slow_mo_input)
+
+        layout.addWidget(self.playwright_group)
 
         # Search parameters group
         params_group = QGroupBox("Search Parameters")
@@ -111,12 +171,42 @@ class SearchOptionsPanel(QWidget):
         # Add spacer to push content to the top
         layout.addStretch(1)
 
+        # Initial state
+        self._on_use_playwright_changed()
+
+    def _on_use_playwright_changed(self):
+        """Handle changes to the use_playwright checkbox."""
+        is_enabled = self.use_playwright_checkbox.isChecked()
+        self.playwright_group.setEnabled(is_enabled)
+
     def _load_settings(self):
         """Load current search settings from config."""
         try:
             # Load use_test_data setting
             use_test_data = config_manager.get_setting("search.use_test_data")
             self.use_test_data_checkbox.setChecked(bool(use_test_data))
+
+            # Load use_playwright setting
+            use_playwright = config_manager.get_setting("search.use_playwright")
+            self.use_playwright_checkbox.setChecked(bool(use_playwright))
+
+            # Load Playwright settings
+            headless = config_manager.get_setting("playwright.headless")
+            self.headless_checkbox.setChecked(bool(headless))
+
+            screenshot_enabled = config_manager.get_setting("playwright.screenshot_enabled")
+            self.screenshot_checkbox.setChecked(bool(screenshot_enabled))
+
+            debug_mode = config_manager.get_setting("playwright.debug_mode")
+            self.debug_checkbox.setChecked(bool(debug_mode))
+
+            timeout = config_manager.get_setting("playwright.timeout")
+            if timeout is not None:
+                self.timeout_input.setValue(timeout)
+
+            slow_mo = config_manager.get_setting("playwright.slow_mo")
+            if slow_mo is not None:
+                self.slow_mo_input.setValue(slow_mo)
 
             # Load default radius
             default_radius = config_manager.get_setting("search.default_radius")
@@ -133,6 +223,9 @@ class SearchOptionsPanel(QWidget):
             if request_delay is not None:
                 self.request_delay_input.setValue(request_delay)
 
+            # Update UI state
+            self._on_use_playwright_changed()
+
             logger.debug("Loaded search settings from config")
         except Exception as e:
             logger.error(f"Error loading search settings: {e}")
@@ -143,6 +236,23 @@ class SearchOptionsPanel(QWidget):
             # Update use_test_data setting
             use_test_data = self.use_test_data_checkbox.isChecked()
             config_manager.update_setting("search.use_test_data", use_test_data)
+
+            # Update use_playwright setting
+            use_playwright = self.use_playwright_checkbox.isChecked()
+            config_manager.update_setting("search.use_playwright", use_playwright)
+
+            # Update Playwright settings
+            config_manager.update_setting("playwright.headless", self.headless_checkbox.isChecked())
+            config_manager.update_setting("playwright.screenshot_enabled", self.screenshot_checkbox.isChecked())
+            config_manager.update_setting("playwright.debug_mode", self.debug_checkbox.isChecked())
+            config_manager.update_setting("playwright.timeout", self.timeout_input.value())
+
+            # Only set slow_mo if it's not zero (disabled)
+            slow_mo = self.slow_mo_input.value()
+            if slow_mo > 0:
+                config_manager.update_setting("playwright.slow_mo", slow_mo)
+            else:
+                config_manager.update_setting("playwright.slow_mo", None)
 
             # Update default radius
             default_radius = self.default_radius_input.value()
@@ -159,9 +269,17 @@ class SearchOptionsPanel(QWidget):
             # Get the updated settings as a dictionary
             updated_settings = {
                 "use_test_data": use_test_data,
+                "use_playwright": use_playwright,
                 "default_radius": default_radius,
                 "default_max_price": default_max_price,
                 "request_delay": request_delay,
+                "playwright": {
+                    "headless": self.headless_checkbox.isChecked(),
+                    "screenshot_enabled": self.screenshot_checkbox.isChecked(),
+                    "debug_mode": self.debug_checkbox.isChecked(),
+                    "timeout": self.timeout_input.value(),
+                    "slow_mo": slow_mo if slow_mo > 0 else None,
+                },
             }
 
             # Emit signal with updated settings
@@ -177,9 +295,18 @@ class SearchOptionsPanel(QWidget):
         Returns:
             dict: Dictionary of current search settings
         """
+        slow_mo = self.slow_mo_input.value()
         return {
             "use_test_data": self.use_test_data_checkbox.isChecked(),
+            "use_playwright": self.use_playwright_checkbox.isChecked(),
             "default_radius": self.default_radius_input.value(),
             "default_max_price": self.default_max_price_input.value(),
             "request_delay": self.request_delay_input.value(),
+            "playwright": {
+                "headless": self.headless_checkbox.isChecked(),
+                "screenshot_enabled": self.screenshot_checkbox.isChecked(),
+                "debug_mode": self.debug_checkbox.isChecked(),
+                "timeout": self.timeout_input.value(),
+                "slow_mo": slow_mo if slow_mo > 0 else None,
+            },
         }

@@ -4,19 +4,23 @@
     "python.analysis.extraPaths": [
         "${workspaceFolder}/src"
     ],
-    "python.languageServer": "None",
-    "python.analysis.typeCheckingMode": "off",
-    "python.linting.enabled": true,
+    "python.linting.enabled": false,
     "python.linting.pylintEnabled": false,
     "python.linting.flake8Enabled": false,
     "python.linting.pycodestyleEnabled": false,
     "python.linting.mypyEnabled": false,
     "python.linting.ruffEnabled": true,
-    "mypy.runUsingActiveInterpreter": true,
+    "pyright.disableLanguageServices": false,
+    "pyright.disableOrganizeImports": false,
+    "pyright.analysis.extraPaths": [
+        "${workspaceFolder}/src"
+    ],
+    "ruff.organizeImports": true,
+    "ruff.fixAll": true,
     "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {
-        "source.organizeImports": "explicit",
-        "source.fixAll": "explicit"
+        "source.organizeImports.ruff": "explicit",
+        "source.fixAll.ruff": "explicit"
     },
     "editor.detectIndentation": false,
     "files.autoSave": "afterDelay",
@@ -31,6 +35,7 @@
         "**/*.yml": "yaml",
         "**/*.yaml": "yaml"
     },
+    "todo-tree.tree.showBadges": true
     "docker.composeFilePaths": [
         "${workspaceFolder}/docker/docker-compose.yml"
     ],
@@ -38,13 +43,12 @@
     "docker.enableDebugging": true,
     "terminal.integrated.defaultProfile.linux": "bash",
     "terminal.integrated.defaultProfile.osx": "zsh",
+    "terminal.integrated.inheritEnv": true,
     "terminal.integrated.env.linux": {
-        "VIRTUAL_ENV": "${workspaceFolder}/.venv",
-        "PATH": "${workspaceFolder}/.venv/bin:${env:PATH}"
+        "PYTHONPATH": "${workspaceFolder}:${env:PYTHONPATH}"
     },
     "terminal.integrated.env.osx": {
-        "VIRTUAL_ENV": "${workspaceFolder}/.venv",
-        "PATH": "${workspaceFolder}/.venv/bin:${env:PATH}"
+        "PYTHONPATH": "${workspaceFolder}:${env:PYTHONPATH}"
     },
     "python.testing.pytestEnabled": true,
     "python.testing.unittestEnabled": false,

@@ -48,9 +48,14 @@ dev = [
 testpaths = ["tests"]
 
 [tool.ruff]
-target-version = "py39"
+target-version = "py311"
 line-length = 120
 fix = true
+
+[tool.black]
+line-length = 120
+target-version = ['py311']
+preview = true
 
 [tool.ruff.lint]
 select = [

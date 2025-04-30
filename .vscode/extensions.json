@@ -1,0 +1,10 @@
+{
+    "recommendations": [
+        "detachhead.basedpyright",
+        "charliermarsh.ruff"
+    ],
+    "unwantedRecommendations": [
+        "ms-python.python",
+        "ms-python.vscode-pylance"
+    ]
+} 

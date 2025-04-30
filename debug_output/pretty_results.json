@@ -1,0 +1,332 @@
+{
+  "timestamp": "20250430_213618",
+  "url": "https://www.autotrader.co.uk/car-search?postcode=BT73FN&radius=30&price-from=500&price-to=2500&homeDeliveryAdverts=include&advertising-location=at_cars&page=2&per-page=50",
+  "xpath": {
+    "selector": "//ul/li[.//a[contains(@href, '/car-details') or contains(@href, '/classified/advert')]]",
+    "listings": [
+      {
+        "xpath_used": "//ul/li[.//a[contains(@href, '/car-details') or contains(@href, '/classified/advert')]]",
+        "title": "Volvo S602.4 D5 SE 4dr, \u00a32,500",
+        "price": "2.4 D5 SE 4dr, \u00a32,500",
+        "url": "https://www.autotrader.co.uk/car-details/202504301898649?sort=relevance&searchId=75ab2004-a4fe-4655-80ed-92a00962a31f&advertising-location=at_cars&page=2&postcode=BT73FN&price-from=500&price-to=2500&radius=30&fromsra",
+        "specs": [
+          "126,000 miles",
+          "2007"
+        ]
+      },
+      {
+        "xpath_used": "//ul/li[.//a[contains(@href, '/car-details') or contains(@href, '/classified/advert')]]",
+        "title": "Ford Focus1.6 Titanium Hatchback 5dr Petrol Manual Euro 5 (125 ps), \u00a32,500",
+        "price": "1.6 Titanium Hatchback 5dr Petrol Manual Euro 5 (125 ps), \u00a32,500",
+        "url": "https://www.autotrader.co.uk/car-details/202504020864072?sort=relevance&searchId=75ab2004-a4fe-4655-80ed-92a00962a31f&advertising-location=at_cars&page=2&postcode=BT73FN&price-from=500&price-to=2500&radius=30&fromsra",
+        "specs": [
+          "115,000 miles",
+          "2011"
+        ]
+      },
+      {
+        "xpath_used": "//ul/li[.//a[contains(@href, '/car-details') or contains(@href, '/classified/advert')]]",
+        "title": "Ford Fiesta1.25 Zetec 3dr, \u00a31,850",
+        "price": "1.25 Zetec 3dr, \u00a31,850",
+        "url": "https://www.autotrader.co.uk/car-details/202504040976488?sort=relevance&searchId=75ab2004-a4fe-4655-80ed-92a00962a31f&advertising-location=at_cars&page=2&postcode=BT73FN&price-from=500&price-to=2500&radius=30&fromsra",
+        "specs": [
+          "93,000 miles",
+          "2009"
+        ]
+      },
+      {
+        "xpath_used": "//ul/li[.//a[contains(@href, '/car-details') or contains(@href, '/classified/advert')]]",
+        "title": "Ford Fiesta1.25 Edge 3dr, \u00a32,350",
+        "price": "1.25 Edge 3dr, \u00a32,350",
+        "url": "https://www.autotrader.co.uk/car-details/202504261755556?sort=relevance&searchId=75ab2004-a4fe-4655-80ed-92a00962a31f&advertising-location=at_cars&page=2&postcode=BT73FN&price-from=500&price-to=2500&radius=30&fromsra",
+        "specs": [
+          "90,000 miles",
+          "2010"
+        ]
+      },
+      {
+        "xpath_used": "//ul/li[.//a[contains(@href, '/car-details') or contains(@href, '/classified/advert')]]",
+        "title": "Volkswagen Golf1.4 S 5dr, \u00a31,450",
+        "price": "1.4 S 5dr, \u00a31,450",
+        "url": "https://www.autotrader.co.uk/car-details/202504151372691?sort=relevance&searchId=75ab2004-a4fe-4655-80ed-92a00962a31f&advertising-location=at_cars&page=2&postcode=BT73FN&price-from=500&price-to=2500&radius=30&fromsra",
+        "specs": [
+          "154,000 miles",
+          "2008"
+        ]
+      }
+    ]
+  },
+  "direct_js": {
+    "selector": "direct-js",
+    "listings": [
+      {
+        "index": 0,
+        "selector": "DIV.at__sc-1okmyrd-3.kZxiDE",
+        "title": "Within 30 milesremove\u00a3500 - \u00a32,500removeaddMake & ModeladdYearaddMileageaddGearboxaddBody type",
+        "price": "\u00a3500",
+        "url": "https://www.autotrader.co.uk/car-details/202504301898649?sort=relevance&searchId=75ab2004-a4fe-4655-80ed-92a00962a31f&advertising-location=at_cars&page=2&postcode=BT73FN&price-from=500&price-to=2500&radius=30&fromsra",
+        "specs": [
+          "73 results",
+          "Loading...",
+          "Loading...",
+          "126,000 miles",
+          "2007",
+          "Belfast (2 miles)",
+          "Loading...",
+          "Loading...",
+          "115,000 miles",
+          "2011",
+          "Belfast (1 mile)",
+          "Loading...",
+          "Loading...",
+          "93,000 miles",
+          "2009",
+          "Belfast (4 miles)",
+          "Loading...",
+          "Loading...",
+          "90,000 miles",
+          "2010",
+          "Ballyclare (13 miles)",
+          "Loading...",
+          "Loading...",
+          "154,000 miles",
+          "2008",
+          "Belfast (3 miles)",
+          "Loading...",
+          "Loading...",
+          "Cat N",
+          "70,000 miles",
+          "2012",
+          "Lisburn (7 miles)",
+          "Loading...",
+          "Loading...",
+          "83,000 miles",
+          "2006",
+          "Newtownards (5 miles)",
+          "Loading...",
+          "Loading...",
+          "Cat S",
+          "137,000 miles",
+          "2011",
+          "Belfast (1 mile)",
+          "Loading...",
+          "Loading...",
+          "90,705 miles",
+          "2012",
+          "Belfast (5 miles)",
+          "Loading...",
+          "Loading...",
+          "55,200 miles",
+          "2014",
+          "Belfast (4 miles)",
+          "Loading...",
+          "Loading...",
+          "70,000 miles",
+          "2007",
+          "Belfast (5 miles)",
+          "Loading...",
+          "Loading...",
+          "57,600 miles",
+          "2001",
+          "Newry (27 miles)",
+          "Loading...",
+          "Loading...",
+          "99,545 miles",
+          "2006",
+          "Newtownards (8 miles)",
+          "Loading...",
+          "Loading...",
+          "127,000 miles",
+          "2011",
+          "Downpatrick (19 miles)",
+          "Loading...",
+          "Loading...",
+          "85,579 miles",
+          "2006",
+          "Loading...",
+          "Loading...",
+          "Cat S",
+          "30,800 miles",
+          "2014",
+          "Belfast (2 miles)",
+          "Loading...",
+          "Loading...",
+          "Cat N",
+          "95,260 miles",
+          "2010",
+          "Belfast (3 miles)",
+          "Loading...",
+          "Loading...",
+          "162,000 miles",
+          "2010",
+          "Newtownards (5 miles)",
+          "Loading...",
+          "Loading...",
+          "108,000 miles",
+          "2004",
+          "Ballymena (26 miles)",
+          "Loading...",
+          "Loading...",
+          "130,000 miles",
+          "2007",
+          "Newtownards (10 miles)"
+        ],
+        "dimensions": {
+          "width": 1200,
+          "height": 5205,
+          "top": 97,
+          "left": 40
+        }
+      },
+      {
+        "index": 1,
+        "selector": "SECTION.at__sc-u4ap7c-0.hEfcko",
+        "title": "Volvo S602.4 D5 SE 4dr, \u00a32,500",
+        "price": "\u00a32,5002",
+        "url": "https://www.autotrader.co.uk/car-details/202504301898649?sort=relevance&searchId=75ab2004-a4fe-4655-80ed-92a00962a31f&advertising-location=at_cars&page=2&postcode=BT73FN&price-from=500&price-to=2500&radius=30&fromsra",
+        "specs": [
+          "126,000 miles",
+          "2007",
+          "Belfast (2 miles)"
+        ],
+        "dimensions": {
+          "width": 366.65625,
+          "height": 188,
+          "top": 581.984375,
+          "left": 50
+        }
+      },
+      {
+        "index": 2,
+        "selector": "DIV",
+        "title": "Volvo S602.4 D5 SE 4dr, \u00a32,500",
+        "price": "\u00a32,5002",
+        "url": "https://www.autotrader.co.uk/car-details/202504301898649?sort=relevance&searchId=75ab2004-a4fe-4655-80ed-92a00962a31f&advertising-location=at_cars&page=2&postcode=BT73FN&price-from=500&price-to=2500&radius=30&fromsra",
+        "specs": [
+          "126,000 miles",
+          "2007"
+        ],
+        "dimensions": {
+          "width": 366.65625,
+          "height": 95,
+          "top": 581.984375,
+          "left": 50
+        }
+      },
+      {
+        "index": 3,
+        "selector": "DIV.at__sc-u4ap7c-1.dYRcys",
+        "title": "Volvo S602.4 D5 SE 4dr, \u00a32,500",
+        "price": "\u00a32,500",
+        "url": "https://www.autotrader.co.uk/car-details/202504301898649?sort=relevance&searchId=75ab2004-a4fe-4655-80ed-92a00962a31f&advertising-location=at_cars&page=2&postcode=BT73FN&price-from=500&price-to=2500&radius=30&fromsra",
+        "dimensions": {
+          "width": 366.65625,
+          "height": 71,
+          "top": 581.984375,
+          "left": 50
+        }
+      },
+      {
+        "index": 4,
+        "selector": "DIV.at__sc-u4ap7c-1.dYRcys",
+        "title": "Ford Focus1.6 Titanium Hatchback 5dr Petrol Manual Euro 5 (125 ps), \u00a32,500",
+        "price": "\u00a32,500",
+        "url": "https://www.autotrader.co.uk/car-details/202504020864072?sort=relevance&searchId=75ab2004-a4fe-4655-80ed-92a00962a31f&advertising-location=at_cars&page=2&postcode=BT73FN&price-from=500&price-to=2500&radius=30&fromsra",
+        "dimensions": {
+          "width": 366.671875,
+          "height": 50,
+          "top": 582,
+          "left": 456.65625
+        }
+      },
+      {
+        "index": 5,
+        "selector": "SECTION.at__sc-u4ap7c-0.hEfcko",
+        "title": "Ford Focus1.6 Titanium Hatchback 5dr Petrol Manual Euro 5 (125 ps), \u00a32,500",
+        "price": "\u00a32,500",
+        "url": "https://www.autotrader.co.uk/car-details/202504020864072?sort=relevance&searchId=75ab2004-a4fe-4655-80ed-92a00962a31f&advertising-location=at_cars&page=2&postcode=BT73FN&price-from=500&price-to=2500&radius=30&fromsra",
+        "specs": [
+          "115,000 miles",
+          "2011",
+          "Belfast (1 mile)"
+        ],
+        "dimensions": {
+          "width": 366.671875,
+          "height": 188,
+          "top": 582,
+          "left": 456.65625
+        }
+      },
+      {
+        "index": 6,
+        "selector": "SECTION.at__sc-u4ap7c-0.hEfcko",
+        "title": "Ford Fiesta1.25 Zetec 3dr, \u00a31,850",
+        "price": "\u00a31,8501",
+        "url": "https://www.autotrader.co.uk/car-details/202504040976488?sort=relevance&searchId=75ab2004-a4fe-4655-80ed-92a00962a31f&advertising-location=at_cars&page=2&postcode=BT73FN&price-from=500&price-to=2500&radius=30&fromsra",
+        "specs": [
+          "93,000 miles",
+          "2009",
+          "Belfast (4 miles)"
+        ],
+        "dimensions": {
+          "width": 366.65625,
+          "height": 188,
+          "top": 581.984375,
+          "left": 863.328125
+        }
+      },
+      {
+        "index": 7,
+        "selector": "DIV",
+        "title": "Ford Fiesta1.25 Zetec 3dr, \u00a31,850",
+        "price": "\u00a31,8501",
+        "url": "https://www.autotrader.co.uk/car-details/202504040976488?sort=relevance&searchId=75ab2004-a4fe-4655-80ed-92a00962a31f&advertising-location=at_cars&page=2&postcode=BT73FN&price-from=500&price-to=2500&radius=30&fromsra",
+        "specs": [
+          "93,000 miles",
+          "2009"
+        ],
+        "dimensions": {
+          "width": 366.65625,
+          "height": 74,
+          "top": 581.984375,
+          "left": 863.328125
+        }
+      },
+      {
+        "index": 8,
+        "selector": "DIV.at__sc-u4ap7c-1.dYRcys",
+        "title": "Ford Fiesta1.25 Zetec 3dr, \u00a31,850",
+        "price": "\u00a31,850",
+        "url": "https://www.autotrader.co.uk/car-details/202504040976488?sort=relevance&searchId=75ab2004-a4fe-4655-80ed-92a00962a31f&advertising-location=at_cars&page=2&postcode=BT73FN&price-from=500&price-to=2500&radius=30&fromsra",
+        "dimensions": {
+          "width": 366.65625,
+          "height": 50,
+          "top": 581.984375,
+          "left": 863.328125
+        }
+      },
+      {
+        "index": 9,
+        "selector": "SECTION.at__sc-u4ap7c-0.hEfcko",
+        "title": "Ford Fiesta1.25 Edge 3dr, \u00a32,350",
+        "price": "\u00a32,3501",
+        "url": "https://www.autotrader.co.uk/car-details/202504261755556?sort=relevance&searchId=75ab2004-a4fe-4655-80ed-92a00962a31f&advertising-location=at_cars&page=2&postcode=BT73FN&price-from=500&price-to=2500&radius=30&fromsra",
+        "specs": [
+          "90,000 miles",
+          "2010",
+          "Ballyclare (13 miles)"
+        ],
+        "dimensions": {
+          "width": 366.65625,
+          "height": 188,
+          "top": 1104.984375,
+          "left": 50
+        }
+      }
+    ]
+  },
+  "count": {
+    "xpath": 5,
+    "direct_js": 10
+  }
+}

@@ -8,6 +8,8 @@ import os
 
 from ..config.settings import settings
 
+# Keep track of configured loggers
+_configured_loggers = set()
 
 def setup_logger(name: str = None) -> logging.Logger:
     """Set up and configure a logger instance.
@@ -20,9 +22,12 @@ def setup_logger(name: str = None) -> logging.Logger:
     """
     # Get logger
     logger = logging.getLogger(name)
-
+    
+    # Use a unique identifier for the logger
+    logger_id = name if name else "root"
+    
     # Only configure if not already configured
-    if not logger.handlers:
+    if logger_id not in _configured_loggers:
         # Set log level from settings
         log_level = getattr(logging, settings.log.level.upper())
         logger.setLevel(log_level)
@@ -49,8 +54,11 @@ def setup_logger(name: str = None) -> logging.Logger:
         file_handler.setFormatter(formatter)
         logger.addHandler(file_handler)
 
-        logger.info(f"Logger initialized: {name or 'root'}")
-
+        logger.info(f"Logger initialized: {logger_id}")
+        
+        # Mark as configured
+        _configured_loggers.add(logger_id)
+    
     return logger
 
 

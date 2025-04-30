@@ -76,9 +76,26 @@ class SearchSettings(BaseSettings):
     request_delay: float = Field(1.5, description="Delay between search requests in seconds")
     cache_expiry: int = Field(3600, description="Cache expiry time in seconds")
     use_test_data: bool = Field(False, description="Use test data when real data cannot be found")
+    use_playwright: bool = Field(False, description="Use Playwright for browser automation")
 
     class Config:
         env_prefix = "SEARCH_"
+
+
+class PlaywrightSettings(BaseSettings):
+    """Configuration settings for Playwright browser automation."""
+
+    headless: bool = Field(True, description="Run browser in headless mode")
+    slow_mo: Optional[int] = Field(None, description="Slow down Playwright operations by the specified amount (in ms)")
+    screenshot_enabled: bool = Field(True, description="Enable screenshots")
+    debug_mode: bool = Field(False, description="Enable Playwright debug mode")
+    timeout: int = Field(30, description="Timeout for Playwright operations (in seconds)")
+    user_agent: Optional[str] = Field(None, description="Custom user agent string")
+    viewport_width: int = Field(1280, description="Browser viewport width")
+    viewport_height: int = Field(800, description="Browser viewport height")
+
+    class Config:
+        env_prefix = "PLAYWRIGHT_"
 
 
 class LLMSettings(BaseSettings):
@@ -105,6 +122,7 @@ class AppSettings(BaseSettings):
     ui: UISettings = UISettings()
     search: SearchSettings = SearchSettings()
     llm: LLMSettings = LLMSettings()
+    playwright: PlaywrightSettings = PlaywrightSettings()
     debug: bool = Field(False, description="Debug mode")
 
     class Config:

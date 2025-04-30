@@ -16,6 +16,7 @@ from ..core.logging import get_logger
 from ..models.car_data import CarListingData
 from ..models.search_parameters import SearchParameters
 from .search_providers import AutoTraderProvider
+from .search_providers_playwright import PlaywrightAutoTraderProvider
 
 # Set up logger for this module
 logger = get_logger(__name__)
@@ -31,8 +32,15 @@ class SearchService:
 
     def __init__(self):
         """Initialize the search service."""
-        # Create the AutoTrader provider
-        self.autotrader_provider = AutoTraderProvider()
+        # Check if we should use Playwright
+        use_playwright = config_manager.get_setting("search.use_playwright") or False
+
+        if use_playwright:
+            logger.info("Initializing with Playwright-based AutoTrader provider")
+            self.autotrader_provider = PlaywrightAutoTraderProvider()
+        else:
+            logger.info("Initializing with HTTP-based AutoTrader provider")
+            self.autotrader_provider = AutoTraderProvider()
 
         # Cache expiry time in seconds (default 1 hour)
         self.cache_expiry = config_manager.get_setting("search.cache_expiry") or 3600

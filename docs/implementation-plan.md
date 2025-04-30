@@ -22,6 +22,7 @@ This document outlines the implementation plan for the Car Search application ba
 - ✅ Define abstract `ISearchProvider` interface (2023-07-31)
 - ✅ Implement `AutoTraderProvider` concrete class (2023-07-31)
 - ✅ Add retry logic and error handling (2023-07-31)
+- [ ] Upgrade to browser automation with Playwright (2023-08-10+)
 
 ### 2.3 Search Service
 
@@ -35,6 +36,18 @@ This document outlines the implementation plan for the Car Search application ba
 - ✅ Refactor search panel into separate component (2023-07-26)
 - ✅ Implement form validation and error display (2023-07-27)
 - ✅ Add save/load functionality for search parameters (2023-08-01)
+
+### 2.5 Browser Automation (New)
+
+- [ ] Implement Playwright-based web scraping strategy
+  - [ ] Create browser session management
+  - [ ] Handle dynamic content loading
+  - [ ] Implement cookie consent and popup management
+  - [ ] Add screenshot capture for debugging
+  - [ ] Develop resilient selector strategy
+  - [ ] Add graceful degradation to previous method
+- [ ] Update search provider to use browser automation
+- [ ] Create tests for browser automation components
 
 ## Phase 3: Results Display
 
@@ -199,6 +212,13 @@ Each task is considered complete when:
 6. Changes are reviewed by another developer
 
 ## Recent Updates
+
+### 2023-08-10
+
+- Created Playwright-based test script for car scraping
+- Successfully validated browser automation approach against AutoTrader
+- Planned migration of main scraping functionality to Playwright
+- Updated tasks and implementation plan to include browser automation strategy
 
 ### 2023-08-01
 

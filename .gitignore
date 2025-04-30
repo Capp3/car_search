@@ -172,3 +172,10 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+# Playwright screenshots and debug files
+screenshots/
+playwright-report/
+test-results/
+debug.html
+scraper_debug.html

@@ -32,6 +32,7 @@ dependencies = [
     "PyQt6>=6.9.0",
     "responses>=0.24.1",
     "pydantic-settings>=2.9.1",
+    "playwright>=1.51.0",
 ]
 
 [dependency-groups]
